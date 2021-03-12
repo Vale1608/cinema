@@ -117,7 +117,7 @@ public class FilmRepositoryImp implements FilmRepository {
 				 film.setCodFilm(resultSet.getInt("CodFilm"));
 				 film.setTitolo( resultSet.getString("Titolo"));
 	             film.setAnnoProduzione( resultSet.getString("AnnoProduzione"));
-	             film.setNazionalita( resultSet.getString("Nazionalità") );
+	             film.setNazionalita( resultSet.getString("Nazionalita") );
 	             film.setRegista( resultSet.getString("regista") );
 	             film.setGenere( resultSet.getString("genere") );
 				
@@ -159,7 +159,7 @@ public class FilmRepositoryImp implements FilmRepository {
 	                f.setCodFilm(resultSet.getInt("CodFilm"));
 	                f.setTitolo( resultSet.getString("Titolo"));
 	                f.setAnnoProduzione( resultSet.getString("AnnoProduzione"));
-	                f.setNazionalita( resultSet.getString("Nazionalità") );
+	                f.setNazionalita( resultSet.getString("Nazionalita") );
 	                f.setRegista( resultSet.getString("regista") );
 	                f.setGenere( resultSet.getString("genere") );
 	             
@@ -204,7 +204,7 @@ public class FilmRepositoryImp implements FilmRepository {
 				film.setCodFilm(CodFilm);
 				film.setTitolo(resultSet.getString("Titolo"));
 				film.setAnnoProduzione(resultSet.getString("AnnoProduzione"));
-				film.setNazionalita(resultSet.getString("Nazionalità"));
+				film.setNazionalita(resultSet.getString("Nazionalita"));
 				film.setRegista(resultSet.getString("Regista"));
 				film.setGenere(resultSet.getString("Genere"));
 			
@@ -242,7 +242,7 @@ public class FilmRepositoryImp implements FilmRepository {
 				film.setCodFilm(resultSet.getInt("CodFilm"));
 				film.setTitolo(resultSet.getString("Titolo"));
 				film.setAnnoProduzione(resultSet.getString("AnnoProduzione"));
-				film.setNazionalita(resultSet.getString("Nazionalità"));
+				film.setNazionalita(resultSet.getString("Nazionalita"));
 				film.setRegista(resultSet.getString("Regista"));
 				film.setGenere(resultSet.getString("Genere"));
 			}
