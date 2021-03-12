@@ -1,8 +1,8 @@
-package repository;
+package cinema.repository;
 
 import java.util.List;
 
-import model.Film;
+import cinema.model.Film;
 
 public interface FilmRepository {
 	

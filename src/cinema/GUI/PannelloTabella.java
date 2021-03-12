@@ -1,4 +1,4 @@
-package gui;
+package cinema.GUI;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import model.*;
-import repository.*;
+import cinema.model.*;
+import cinema.repository.*;
 
 public class PannelloTabella extends JPanel{
 		
@@ -71,7 +71,7 @@ public class PannelloTabella extends JPanel{
                 this.data2[i][0] = f.getCodFilm();
                 this.data2[i][1] = f.getTitolo();
                 this.data2[i][2] = f.getAnnoProduzione();
-                this.data2[i][3] = f.getNazionalità();
+                this.data2[i][3] = f.getNazionalita();
                 this.data2[i][4] = f.getRegista();
                 this.data2[i][5] = f.getGenere();
             }

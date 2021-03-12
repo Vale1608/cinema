@@ -1,20 +1,20 @@
-package model;
+package cinema.model;
 public class Attori {
 	
 	private int CodAttore;
 	private String Nome;
 	private int AnnoNascita;
-	private String Nazionalità;
+	private String Nazionalita;
 	
 	public Attori() {
 		
 	}
 	
-	public Attori(int CodAttore,String Nome,int AnnoNscita,String Nazionalità) {
+	public Attori(int CodAttore,String Nome,int AnnoNscita,String Nazionalita) {
 		this.CodAttore=CodAttore;
 		this.Nome=Nome;
 		this.AnnoNascita=AnnoNascita;
-		this.Nazionalità=Nazionalità;
+		this.Nazionalita=Nazionalita;
 	}
 
 	public int getCodAttore() {
@@ -41,12 +41,12 @@ public class Attori {
 		AnnoNascita = annoNascita;
 	}
 
-	public String getNazionalità() {
-		return Nazionalità;
+	public String getNazionalita() {
+		return Nazionalita;
 	}
 
-	public void setNazionalità(String Nazionalità) {
-		Nazionalità = Nazionalità;
+	public void setNazionalita(String Nazionalita) {
+		Nazionalita = Nazionalita;
 	}
 	
 	@Override
@@ -60,7 +60,7 @@ public class Attori {
 	@Override
 	public String toString() {
 		
-		String s = ""+this.Nome+" "+this.AnnoNascita+" "+this.Nazionalità;
+		String s = ""+this.Nome+" "+this.AnnoNascita+" "+this.Nazionalita;
 		return s;
 		
 	}

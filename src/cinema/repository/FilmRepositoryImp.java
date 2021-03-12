@@ -1,9 +1,14 @@
-package repository;
+package cinema.repository;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.*;
-import model.Film;
+
+import cinema.model.Film;
 
 public class FilmRepositoryImp implements FilmRepository {
 
@@ -18,7 +23,7 @@ public class FilmRepositoryImp implements FilmRepository {
 			
 	        preparedStatement.setString(1, film.getTitolo());
 	        preparedStatement.setString(2, film.getAnnoProduzione());
-	        preparedStatement.setString(4, film.getNazionalità());
+	        preparedStatement.setString(4, film.getNazionalita());
 	        preparedStatement.setString(3, film.getRegista());
 	        preparedStatement.setString(5, film.getGenere());
 		} catch (SQLException e) {
@@ -46,7 +51,7 @@ public class FilmRepositoryImp implements FilmRepository {
 			
 	        preparedStatement.setString(1, film.getTitolo());
 	        preparedStatement.setString(2, film.getAnnoProduzione());
-	        preparedStatement.setString(3, film.getNazionalità());
+	        preparedStatement.setString(3, film.getNazionalita());
 	        preparedStatement.setString(4, film.getRegista());
 	        preparedStatement.setString(5, film.getGenere());
 	        preparedStatement.setInt(6, film.getCodFilm());
@@ -112,7 +117,7 @@ public class FilmRepositoryImp implements FilmRepository {
 				 film.setCodFilm(resultSet.getInt("CodFilm"));
 				 film.setTitolo( resultSet.getString("Titolo"));
 	             film.setAnnoProduzione( resultSet.getString("AnnoProduzione"));
-	             film.setNazionalità( resultSet.getString("Nazionalità") );
+	             film.setNazionalita( resultSet.getString("Nazionalità") );
 	             film.setRegista( resultSet.getString("regista") );
 	             film.setGenere( resultSet.getString("genere") );
 				
@@ -154,7 +159,7 @@ public class FilmRepositoryImp implements FilmRepository {
 	                f.setCodFilm(resultSet.getInt("CodFilm"));
 	                f.setTitolo( resultSet.getString("Titolo"));
 	                f.setAnnoProduzione( resultSet.getString("AnnoProduzione"));
-	                f.setNazionalità( resultSet.getString("Nazionalità") );
+	                f.setNazionalita( resultSet.getString("Nazionalità") );
 	                f.setRegista( resultSet.getString("regista") );
 	                f.setGenere( resultSet.getString("genere") );
 	             
@@ -199,7 +204,7 @@ public class FilmRepositoryImp implements FilmRepository {
 				film.setCodFilm(CodFilm);
 				film.setTitolo(resultSet.getString("Titolo"));
 				film.setAnnoProduzione(resultSet.getString("AnnoProduzione"));
-				film.setNazionalità(resultSet.getString("Nazionalità"));
+				film.setNazionalita(resultSet.getString("Nazionalità"));
 				film.setRegista(resultSet.getString("Regista"));
 				film.setGenere(resultSet.getString("Genere"));
 			
@@ -237,7 +242,7 @@ public class FilmRepositoryImp implements FilmRepository {
 				film.setCodFilm(resultSet.getInt("CodFilm"));
 				film.setTitolo(resultSet.getString("Titolo"));
 				film.setAnnoProduzione(resultSet.getString("AnnoProduzione"));
-				film.setNazionalità(resultSet.getString("Nazionalità"));
+				film.setNazionalita(resultSet.getString("Nazionalità"));
 				film.setRegista(resultSet.getString("Regista"));
 				film.setGenere(resultSet.getString("Genere"));
 			}

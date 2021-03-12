@@ -1,4 +1,4 @@
-package model;
+package cinema.model;
 
 public class Proiezioni {
 	

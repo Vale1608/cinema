@@ -1,11 +1,11 @@
-package model;
+package cinema.model;
 
 public class Sale {
 	
 	private int codSala;
 	private int posti;
 	private String nome;
-	private String Città;
+	private String Citta;
 	
 	public Sale() {
 		
@@ -15,10 +15,10 @@ public class Sale {
 		this.codSala = codSala;
 	}
 	
-	public Sale(int posti, String nome, String Città) {
+	public Sale(int posti, String nome, String Citta) {
 		this.posti= posti;
 		this.nome = nome;
-		this.Città = Città;
+		this.Citta = Citta;
 	}
 	
 
@@ -33,7 +33,7 @@ public class Sale {
 	
 	@Override
 	public String toString() {
-		String s = ""+this.nome+" "+this.posti+" "+this.Città;
+		String s = ""+this.nome+" "+this.posti+" "+this.Citta;
 		return s;
 	}
 
@@ -62,11 +62,11 @@ public class Sale {
 	}
 
 	public String getCitta() {
-		return Città;
+		return Citta;
 	}
 
-	public void setCittà(String Città) {
-		this.Città = Città;
+	public void setCitta(String Citta) {
+		this.Citta = Citta;
 	}
 	
 	

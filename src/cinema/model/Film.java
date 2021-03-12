@@ -1,4 +1,4 @@
-package model;
+package cinema.model;
 public class Film {
 
 	
@@ -7,7 +7,7 @@ public class Film {
 	private int codFilm;
 	private String titolo;
 	private String annoProduzione;
-	private	String Nazionalità;
+	private	String Nazionalita;
 	private	String regista;
 	private String genere;
 	
@@ -32,7 +32,7 @@ public class Film {
 	}
 	@Override
 	public String toString() {
-		String s = ""+this.titolo+" "+this.annoProduzione+" "+this.Nazionalità+" "+this.regista+" "+this.genere;
+		String s = ""+this.titolo+" "+this.annoProduzione+" "+this.Nazionalita+" "+this.regista+" "+this.genere;
 		return s;
 	}
 
@@ -62,12 +62,12 @@ public class Film {
 		this.annoProduzione = annoProduzione;
 	}
 
-	public String getNazionalità() {
-		return Nazionalità;
+	public String getNazionalita() {
+		return Nazionalita;
 	}
 
-	public void setNazionalità(String nazionalità) {
-		this.Nazionalità = nazionalità;
+	public void setNazionalita(String nazionalita) {
+		this.Nazionalita = nazionalita;
 	}
 
 	public String getRegista() {

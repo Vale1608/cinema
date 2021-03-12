@@ -1,4 +1,4 @@
-package gui;
+package cinema.GUI;
 
 public class PannelloAddFilm {
 
