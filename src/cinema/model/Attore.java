@@ -1,77 +1,68 @@
-package cinema.model;
+package model;
+public class Attori {
+	
+	private int CodAttore;
+	private String Nome;
+	private int AnnoNascita;
+	private String Nazionalità;
+	
+	public Attori() {
+		
+	}
+	
+	public Attori(int CodAttore,String Nome,int AnnoNscita,String Nazionalità) {
+		this.CodAttore=CodAttore;
+		this.Nome=Nome;
+		this.AnnoNascita=AnnoNascita;
+		this.Nazionalità=Nazionalità;
+	}
 
-public class Attore {
-	
-	private int codAttore;
-	private String nome;
-	private String annoNascita;
-	private String nazionalita;
-	
-	public Attore() {		
+	public int getCodAttore() {
+		return CodAttore;
+	}
+
+	public void setCodAttore(int codAttore) {
+		CodAttore = codAttore;
+	}
+
+	public String getNome() {
+		return Nome;
+	}
+
+	public void setNome(String nome) {
+		Nome = nome;
+	}
+
+	public int getAnnoNascita() {
+		return AnnoNascita;
+	}
+
+	public void setAnnoNascita(int annoNascita) {
+		AnnoNascita = annoNascita;
+	}
+
+	public String getNazionalità() {
+		return Nazionalità;
+	}
+
+	public void setNazionalità(String Nazionalità) {
+		Nazionalità = Nazionalità;
 	}
 	
-	public Attore(int codAttore) {
-		
-		this.codAttore = codAttore;
-	}
-	
-	public Attore(String nome, String annoNascita, String nazionalita) {
-		
-		this.nome = nome;
-		this.annoNascita = annoNascita;
-		this.nazionalita = nazionalita;
-	}
-	
-	public Attore(Attore attore) {
-		this(attore.nome, attore.annoNascita, attore.nazionalita);
-	}
-	
-	public boolean equals(Object obj) {
-		if(!(obj instanceof Attore))return false;
-		if(this == obj)return true;
-		
-		Attore attore = (Attore)obj;		
-		return this.codAttore == attore.codAttore;		
+	@Override
+	public boolean equals(Object o) {
+		if(!(o instanceof Attori)) return false;
+		if(this==o) return true;
+		Attori a=(Attori) o;
+		return this.CodAttore == a.CodAttore;
 	}
 	
 	@Override
 	public String toString() {
 		
-		String s = ""+this.nome+" "+this.annoNascita+" "+this.nazionalita;
+		String s = ""+this.Nome+" "+this.AnnoNascita+" "+this.Nazionalità;
 		return s;
 		
 	}
-
-	public int getCodAttore() {
-		return codAttore;
-	}
-
-	public void setCodAttore(int codAttore) {
-		this.codAttore = codAttore;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getAnnoNascita() {
-		return annoNascita;
-	}
-
-	public void setAnnoNascita(String annoNascita) {
-		this.annoNascita = annoNascita;
-	}
-
-	public String getNazionalita() {
-		return nazionalita;
-	}
-
-	public void setNazionalita(String nazionalita) {
-		this.nazionalita = nazionalita;
-	}	
-
 }
+

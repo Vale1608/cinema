@@ -1,37 +1,35 @@
-package cinema.model;
+package model;
 
-public class Proiezione {
+public class Proiezioni {
 	
 	private int codProiezione;
-	private Film codFilm;
-	private Sala codSala;
+	private int codFilm;
+	private int codSala;
 	private int incasso;
 	private String dataProiezione;
 	
-	public Proiezione() {
+	public Proiezioni() {
 		
 	}
 	
-	public Proiezione(int codProiezione) {
+	public Proiezioni(int codProiezione) {
 		this.codProiezione = codProiezione;
 	}
 	
-	public Proiezione(Film codFilm, Sala codSala, int incasso, String dataProiezione) {
+	public Proiezioni(int codFilm, int codSala, int incasso, String dataProiezione) {
 		this.codFilm = codFilm;
 		this.codSala = codSala;
 		this.incasso = incasso;
 		this.dataProiezione = dataProiezione;
 	}
 	
-	public Proiezione(Proiezione proiezione) {
-		this(proiezione.codFilm, proiezione.codSala, proiezione.incasso, proiezione.dataProiezione);
-	}
+	
 	
 	@Override
 	public boolean equals(Object obj) {
-		if(!(obj instanceof Proiezione))return false;
+		if(!(obj instanceof Proiezioni))return false;
 		if(this == obj)return true;
-		Proiezione proiezione = (Proiezione)obj;
+		Proiezioni proiezione = (Proiezioni)obj;
 		return this.codProiezione == proiezione.codProiezione;
 	}
 	
@@ -49,19 +47,19 @@ public class Proiezione {
 		this.codProiezione = codProiezione;
 	}
 
-	public Film getCodFilm() {
+	public int getCodFilm() {
 		return codFilm;
 	}
 
-	public void setCodFilm(Film codFilm) {
+	public void setCodFilm(int codFilm) {
 		this.codFilm = codFilm;
 	}
 
-	public Sala getCodSala() {
+	public int getCodSala() {
 		return codSala;
 	}
 
-	public void setCodSala(Sala codSala) {
+	public void setCodSala(int codSala) {
 		this.codSala = codSala;
 	}
 

@@ -1,109 +1,141 @@
 package gui;
 
-import javax.swing.event.AncestorListener;
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.event.AncestorListener;
+
+import repository.FilmRepository;
+import repository.FilmRepositoryImp;
 
 
-public class Interface  extends JFrame implements PanelSwitcher
-{
+
+public class MondoCinemaGui implements PanelSwitcher{
+	
 	private final int WIDTH = 800;
     private final int HEIGTH = 600;
+    private JFrame frame;
+    
     private PannelloTabella pannelloTabella;
+    private FilmRepository filmRepository = new FilmRepositoryImp();
     
-    public Interface(String title)
-    {
-         setTitle(title);
-         setSize(WIDTH, HEIGTH);
-         setLocation(new Point(50,200));
-         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-         
-         JMenuBar menuBar = new JMenuBar();
-         JMenu comandi = new JMenu("Menu");
-         JMenu comandi1 = new JMenu("Attori");
-         JMenu comandi2 = new JMenu("Film");
-         JMenu comandi3 = new JMenu("Recita");
-         JMenu comandi4 = new JMenu("Proiezioni");
-         JMenu comandi5 = new JMenu("Sale");
-         JMenuItem load = new JMenuItem("Carica Menu");
-         JMenuItem load1 = new JMenuItem("Carica Attori");
-         JMenuItem load2 = new JMenuItem("Carica Film");
-         JMenuItem load3 = new JMenuItem("Carica Recita");
-         JMenuItem load4 = new JMenuItem("Carica Proiezioni");
-         JMenuItem load5 = new JMenuItem("Sale");
-         JMenuItem chiusura = new JMenuItem("Close");
-         JMenu menuinterno= new JMenu("Filtra per");
-         JMenuItem a = new JMenuItem("Filtra per ");
-         JMenuItem b = new JMenuItem("Filtra per");
-         JMenuItem c = new JMenuItem("Filtra per");
-         JMenuItem d = new JMenuItem("Filtra per");
-         JMenuItem e = new JMenuItem("Filtra per");
-         menuinterno.add(a);
-         menuinterno.add(b);
-         menuinterno.add(c);
-         menuinterno.add(d);
-         menuinterno.add(e);
-      
-         
-         comandi.add(menuinterno);
-         comandi1.add(load1);
-         comandi2.add(load2);
-         comandi3.add(load3);
-         comandi4.add(load4);
-         comandi5.add(load5);
-         
-         chiusura.addActionListener(new ActionListener() 
-         {
+    
+    
+    public MondoCinemaGui(String title) {
+    	this.frame = new JFrame();
+    	this.frame.setTitle(title);
+    	this.frame.setSize(WIDTH, HEIGTH);
+    	this.frame.setLocation(new Point(50,200));
+    	this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        JMenuBar menuBar = new JMenuBar();
 
- 			@Override
- 			public void actionPerformed(ActionEvent e) 
- 			{
+        JMenu comandi = new JMenu("Comandi");
+        JMenu attori=new JMenu("Attori");
+        JMenuItem caricaAttori=new JMenuItem("Carica");
+        JMenu film=new JMenu("Film");
+        JMenuItem caricaFilm=new JMenuItem("Carica");
+        JMenu recita=new JMenu("Recita");
+        JMenuItem caricaRecita=new JMenuItem("Carica");
+        JMenu proiezioni=new JMenu("Proiezioni");
+        JMenuItem caricaProiezioni=new JMenuItem("Carica");
+        JMenu sale=new JMenu("Sale");
+        JMenuItem caricaSale=new JMenuItem("Carica");
+        film.add(caricaFilm);
+        sale.add(caricaSale);
+        recita.add(caricaRecita);
+        proiezioni.add(caricaProiezioni);
+        attori.add(caricaAttori);
 
- 				System.exit(-1);
- 			}
-         	
-          });
-         
-         comandi.add(chiusura);
-         menuBar.add(comandi);
-         menuBar.add(comandi1);
-         menuBar.add(comandi2);
-         menuBar.add(comandi3);
-         menuBar.add(comandi4);
-         menuBar.add(comandi5);
-         
-         this.setJMenuBar(menuBar);
-     }
-     public static void main(String[] args) 
-     {
-         EventQueue.invokeLater(new Runnable() 
-         { //classe interna anonima
-             @Override
-             public void run() 
-             {
-                 JFrame f = new Interface("Finestra con MenuBar");
-                 f.setVisible(true);
-             }
+        
+        JMenuItem close = new JMenuItem("Close");
+        JMenu filtraper= new JMenu("Filtra per");
+        JMenuItem titoloeCod = new JMenuItem("Titolo e CodFilm");
+        JMenuItem listafilm = new JMenuItem("ListaFilm");
+        JMenuItem codFilm=new JMenuItem("CodFilm");
+        JMenuItem titoloeanno=new JMenuItem("Titolo e Anno");
+        
+        filtraper.add(titoloeCod);
+        filtraper.add(listafilm);
+        filtraper.add(codFilm);
+        filtraper.add(titoloeanno);
+        
+        comandi.add(filtraper);
+        
+        
+        
+        close.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				System.exit(-1);
+			}
+        	
          });
-     }
+        
+        
+        
+        
+        caricaFilm.addActionListener(new MondoCinemaGui.cercaTable());
+         
+        
+       
+        comandi.add(close);
+        menuBar.add(comandi);
+        menuBar.add(attori);
+        menuBar.add(film);
+        menuBar.add(recita);
+        menuBar.add(proiezioni);
+        menuBar.add(sale);
+        this.frame.setJMenuBar(menuBar);
+        
+        this.pannelloTabella = new PannelloTabella(this);
+        this.frame.add(this.pannelloTabella, BorderLayout.CENTER);
+        this.pannelloTabella();
+        this.frame.setVisible(true);
+       
+     
+    }
+ 
     
-    @Override
-    public void pannelloTabella() 
-    {
- 		
- 		// TODO Auto-generated method stub
- 		switchTo(pannelloTabella);
- 	}
- 	private void switchTo(PannelloTabella pannelloTabella1) 
- 	{
- 		// TODO Auto-generated method stub
- 		this.setContentPane(pannelloTabella1);
-         this.pack();
- 	}
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() { //classe interna anonima
+            @Override
+            public void run() {
+                PanelSwitcher mondoCinema = new MondoCinemaGui("MondoCinema");
+            }
+        });
+    }
+
+	@Override
+	public void pannelloTabella() {
+		
+		// TODO Auto-generated method stub
+		switchTo(pannelloTabella);
+	}
+	private void switchTo(PannelloTabella pannelloTabella1) {
+		// TODO Auto-generated method stub
+		this.frame.setContentPane(pannelloTabella1);
+        this.frame.pack();
+	}
+	
+	 private class cercaTable implements ActionListener {
+
+	        @Override
+	        public void actionPerformed(ActionEvent e) {
+	           MondoCinemaGui.this.pannelloTabella.cercaTable();
+	            switchTo(MondoCinemaGui.this.pannelloTabella);
+
+	        }
+	    }
+
+
 }

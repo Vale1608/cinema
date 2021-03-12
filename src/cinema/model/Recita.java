@@ -1,22 +1,20 @@
-package cinema.model;
+package model;
 
 public class Recita {
 	
-	private Attore codAttore;
-	private Film codFilm;
+	private int codAttore;
+	private int codFilm;
 	
 	public Recita() {
 		
 	}
 	
-	public Recita(Attore codAttore,Film codFilm) {
+	public Recita(int codAttore,int codFilm) {
 		this.codAttore = codAttore;
 		this.codFilm = codFilm;
 	}
 	
-	public Recita(Recita recita) {
-		this(recita.codAttore, recita.codFilm);
-	}
+	
 	
 	@Override
 	public boolean equals(Object obj) {
@@ -32,20 +30,21 @@ public class Recita {
 		return s;
 	}
 
-	public Attore getCodAttore() {
+	public int getCodAttore() {
 		return codAttore;
 	}
 
-	public void setCodAttore(Attore codAttore) {
+	public void setCodAttore(int codAttore) {
 		this.codAttore = codAttore;
 	}
 
-	public Film getCodFilm() {
+	public int getCodFilm() {
 		return codFilm;
 	}
 
-	public void setCodFilm(Film codFilm) {
+	public void setCodFilm(int codFilm) {
 		this.codFilm = codFilm;
 	}
 	
 }
+
