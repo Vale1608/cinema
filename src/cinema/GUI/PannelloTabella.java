@@ -18,7 +18,7 @@ public class PannelloTabella extends JPanel{
 	private Object[][] data1 = new Object[0][0];*/
 	
 	private JTable film ;
-	private String colonna2[]={"CodFilm","Titotlo","AnnoProduzione", "Nazionalit√†","Regista","Genere"};
+	private String colonna2[]={"CodFilm","Titotlo","AnnoProduzione", "Nazionalit‡†","Regista","Genere"};
 	private Object[][] data2 = new Object[0][0];
 	private FilmRepository filmRepository = new FilmRepositoryImp();
 	
