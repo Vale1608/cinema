@@ -17,9 +17,11 @@ import java.sql.SQLException;
 	            //STEP 2: Open a connection
 	            System.out.println("Connecting to database...");
 	            //controllare dentro l'interno
-	            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/esercizio?serverTimezone=Europe/Rome",
+	            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hollywood?serverTimezone=Europe/Rome",
 	                    "root",
-	                    "1b64549CT!");
+
+	                    "");
+
 	        } catch (ClassNotFoundException | SQLException e) {
 	            e.printStackTrace();
 	        }
