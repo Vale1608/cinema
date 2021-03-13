@@ -1,6 +1,4 @@
-package guiCinema;
-
-import javax.swing.JPanel;
+package gui;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -12,9 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import cinema.Film;
-import repositoryCinema.FilmRepository;
-import repositoryCinema.FilmRepositoryImp;
+import repository.FilmRepository;
+import repository.FilmRepositoryImp;
+import model.Film;
 
 public class AggiungiFilm extends JPanel {
 	
@@ -25,21 +23,15 @@ public class AggiungiFilm extends JPanel {
     private JLabel labelRegista = new JLabel("Regista");
     private JLabel labelGenere= new JLabel("Genere");
 
-    private JTextField textCodFilm = new JTextField(12);
-    private JTextField textTitolo = new JTextField(12);
-    private JTextField textAnnoProduzione = new JTextField(12);
-    private JTextField textNazionalita = new JTextField(12);
-    private JTextField textRegista = new JTextField(12);
-    private JTextField textGenere = new JTextField(12);
-
-
+    private JTextField textCodFilm = new JTextField(8);
+    private JTextField textTitolo = new JTextField(8);
+    private JTextField textAnnoProduzione = new JTextField(8);
+    private JTextField textNazionalita = new JTextField(8);
+    private JTextField textRegista = new JTextField(8);
+    private JTextField textGenere= new JTextField(8);
 
     private JPanel jPanelNorth = new JPanel();
     private JPanel jPanelSouth = new JPanel();
-	private JLabel crediti=new JLabel("Crediti");
-	private JLabel crditi2=new JLabel("nostri nomi");
-	
-	
 
     private PanelSwitcher panelSwitcher;
 
@@ -47,18 +39,22 @@ public class AggiungiFilm extends JPanel {
 
     private FilmRepository filmRepository = new FilmRepositoryImp();
     
-    public AggiungiFilm(PanelSwitcher panelSwitcher) {
+public PannelloAddFilm(PanelSwitcher panelSwitcher) {
     	
     	this.panelSwitcher = panelSwitcher;
 
-        jPanelNorth.add(labelCodFilm);
+    	jPanelNorth.add(labelCodFilm);
+        jPanelNorth.add(textCodFilm);
         jPanelNorth.add(labelTitolo);
+        jPanelNorth.add(textTitolo);
         jPanelNorth.add(labelAnnoProduzione);
-        jPanelNorth.add(labelNazionalita);
+        jPanelNorth.add(textAnnoProduzione);
         jPanelNorth.add(labelRegista);
+        jPanelNorth.add(textRegista);
         jPanelNorth.add(labelGenere);
+        jPanelNorth.add(textGenere);
 
-        jPanelNorth.setLayout(new GridLayout(2,2));
+        jPanelNorth.setLayout(new GridLayout(1,2));
 
         JButton salva = new JButton("Salva");
         JButton indietro = new JButton("Indietro");
@@ -81,7 +77,7 @@ public class AggiungiFilm extends JPanel {
 
                     film.setTitolo(textTitolo.getText());
                     film.setAnnoProduzione(textAnnoProduzione.getText());
-                    film.setNazionalità(textNazionalita.getText());
+                    film.setNazionalita(textNazionalita.getText());
                     film.setRegista(textRegista.getText());
                     film.setGenere(textGenere.getText());
                     String codiceFilm=textCodFilm.getText();
@@ -101,8 +97,8 @@ public class AggiungiFilm extends JPanel {
                     String regista = textRegista.getText();
                     String genere = textGenere.getText();
 
-                    Film film = new Film(titolo, codFilm, annoProduzione, Nazionalita,regista,genere);
-                    filmRepository.aggiungi(film);
+                    Film film = new Film(codFilm, annoProduzione, Nazionalita,regista,genere);
+                    filmRepository.save(film);
                 }
 
 
@@ -121,9 +117,10 @@ public class AggiungiFilm extends JPanel {
         if(film != null) {
             this.film = film;
 
-            String titolo = textTitolo.getText();
+           
             String codiceFilm=textCodFilm.getText();
             int codFilm = Integer.parseInt(codiceFilm);
+            String titolo = textTitolo.getText();
             String annoProduzione = textAnnoProduzione.getText();
             String nazionalita = textNazionalita.getText();
             String regista = textRegista.getText();
@@ -131,3 +128,4 @@ public class AggiungiFilm extends JPanel {
         }
     }
 }
+   
