@@ -14,7 +14,7 @@ import repository.FilmRepository;
 import repository.FilmRepositoryImp;
 import model.Film;
 
-public class AggiungiFilm extends JPanel {
+public class PannelloAddFIlm extends JPanel {
 	
 	private JLabel labelCodFilm = new JLabel("CodFilm");
     private JLabel labelTitolo = new JLabel("Titolo");
