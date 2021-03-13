@@ -16,9 +16,9 @@ public interface ProiezioniRepository {
     List<Proiezioni> proiezioni();
     //get qualcosa in base ai paramentri film
     
-    Proeizioni getProeizioni(int codFilm, String dataProiezione);
-	Proeizioni getProeizioni(int codSala, String dataProiezione);
-	Proeizioni getProeizioni(int codFilm, int codSala);
+    Proiezioni getProeizioni(int codFilm, String dataProiezione);
+	Proiezioni getProeizioni(int codSala, String dataProiezione);
+	Proiezioni getProeizioni(int codFilm, int codSala);
 	
 
 
