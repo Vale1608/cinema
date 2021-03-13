@@ -1,4 +1,4 @@
-package cinema.repository;
+package repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,8 +25,8 @@ public class ProiezioniRepositoryImp implements ProiezioniRepository {
 	        preparedStatement.setInt(1, proiezione.getCodFilm());
 	        preparedStatement.setInt(2, proiezione.getCodSala());
 			preparedStatement.setInt(3, proiezione.getCodProiezione());
-	        preparedStatement.setInt(4, film.getIncasso());
-	        preparedStatement.setString(5, film.getDataProiezione());
+	        preparedStatement.setInt(4, proiezione.getIncasso());
+	        preparedStatement.setString(5, proiezione.getDataProiezione());
 	        
 		} catch (SQLException e) {
             e.printStackTrace();
@@ -42,7 +42,7 @@ public class ProiezioniRepositoryImp implements ProiezioniRepository {
 	}
 
 	@Override
-	public boolean update(Film film) {
+	public boolean update(Proiezioni proiezione) {
 		
 		Connection conn = ConnectionDatabase.getConnection();
 		PreparedStatement preparedStatement = null;
@@ -54,8 +54,8 @@ public class ProiezioniRepositoryImp implements ProiezioniRepository {
 	        preparedStatement.setInt(1, proiezione.getCodFilm());
 	        preparedStatement.setInt(2, proiezione.getCodSala());
 			
-	        preparedStatement.setInt(4, film.getIncasso());
-	        preparedStatement.setString(5, film.getDataProiezione());
+	        preparedStatement.setInt(4, proiezione.getIncasso());
+	        preparedStatement.setString(5, proiezione.getDataProiezione());
 			preparedStatement.setInt(3, proiezione.getCodProiezione());
 		} catch (SQLException e) {
             e.printStackTrace();
@@ -101,7 +101,7 @@ public class ProiezioniRepositoryImp implements ProiezioniRepository {
 	}
 //public Proiezioni(int codFilm, int codSala,int proiezione, int incasso, String data_proiezione)
 	@Override
-	public Proiezioni cerca(String data_proiezione, int codFilm) {
+	public Proiezioni cerca(String dataProiezione, int codFilm) {
 		
 		Connection conn = ConnectionDatabase.getConnection();
 		Proiezioni p=null;
@@ -109,18 +109,18 @@ public class ProiezioniRepositoryImp implements ProiezioniRepository {
 		
 		try {
 			preparedStatement=conn.prepareStatement("SELECT * FROM proiezioni WHERE data_proiezione=? and codFilm=?");
-			preparedStatement.setString(5, data_proiezione);
+			preparedStatement.setString(5, dataProiezione);
 			preparedStatement.setInt(1, codFilm);
 			
 			ResultSet resultSet=preparedStatement.executeQuery();
 			if(resultSet.next()) {
-				Proiezioni p=new Proiezioni();
+				 p=new Proiezioni();
 				
 				 p.setCodFilm(resultSet.getInt("codFilm"));
 				 p.setCodSala(resultSet.getInt("codSala"));
-	             p.setCodProiezioni(resultSet.getInt("codProiezioni"));
+	             p.setCodProiezione(resultSet.getInt("codProiezioni"));
 	             p.setIncasso( resultSet.getInt("incasso") );
-	             p.setData_proiezione( resultSet.getString("data_proiezione") );
+	             p.setDataProiezione( resultSet.getString("data_proiezione") );
 	             
 				
 			}
@@ -158,14 +158,14 @@ public class ProiezioniRepositoryImp implements ProiezioniRepository {
 	            while(resultSet.next()) {
 	                Proiezioni p = new Proiezioni();
 	                
-					p.setCodFilm(resultSet.getInt("codFilm"));
-					p.setCodSala(resultSet.getInt("codSala"));
-					p.setCodProiezioni(resultSet.getInt("codProiezioni"));
-					p.setIncasso( resultSet.getInt("incasso") );
-					p.setData_proiezione( resultSet.getString("data_proiezione") );
+	                p.setCodFilm(resultSet.getInt("codFilm"));
+	                p.setCodSala(resultSet.getInt("codSala"));
+	                p.setCodProiezione(resultSet.getInt("codProiezioni"));
+	                p.setIncasso( resultSet.getInt("incasso") );
+	                p.setDataProiezione( resultSet.getString("data_proiezione") );
 	               
 
-	                p.add(p);
+	                proiezioni.add(p);
 	            }
 
 	        } catch (SQLException e) {
@@ -180,7 +180,7 @@ public class ProiezioniRepositoryImp implements ProiezioniRepository {
 	            }
 	        }
 
-	        return p;
+	        return proiezioni;
 
 		
 		
@@ -189,16 +189,16 @@ public class ProiezioniRepositoryImp implements ProiezioniRepository {
 	
 
 	@Override
-	public Proiezione getFilm(int codFilm, String data_produzione) {
+	public Proiezioni getProiezioni(int codFilm, String dataProiezione) {
 		
 		Connection conn = ConnectionDatabase.getConnection();
 		Proiezioni p=null;
 		PreparedStatement preparedStatement = null;
 		
 		try {
-			preparedStatement = conn.prepareStatement("SELECT * FROM film WHERE codFilm=? and data_proiezione=?");
+			preparedStatement = conn.prepareStatement("SELECT * FROM film WHERE codFilm=? and dataProiezione=?");
 			preparedStatement.setInt(1,codFilm );
-			preparedStatement.setString(3,data_proiezione);
+			preparedStatement.setString(2,dataProiezione);
 			
 			ResultSet resultSet=preparedStatement.executeQuery();
 			if(resultSet.next()) {
@@ -206,9 +206,9 @@ public class ProiezioniRepositoryImp implements ProiezioniRepository {
 				
 				p.setCodFilm(resultSet.getInt("codFilm"));
 				p.setCodSala(resultSet.getInt("codSala"));
-	            p.setCodProiezioni(resultSet.getInt("codProiezioni"));
+	            p.setCodProiezione(resultSet.getInt("codProiezioni"));
 	            p.setIncasso( resultSet.getInt("incasso") );
-	            p.setData_proiezione( resultSet.getString("data_proiezione") );
+	            p.setDataProiezione( resultSet.getString("data_proiezione") );
 			}
 			
 		}catch(SQLException e) {
@@ -226,55 +226,18 @@ public class ProiezioniRepositoryImp implements ProiezioniRepository {
 		return p;
 			
 	}
-	@override	
-	public Proiezione getFilm(int codSala, String data_produzione) {
-		
-		Connection conn = ConnectionDatabase.getConnection();
-		Proiezioni p=null;
-		PreparedStatement preparedStatement = null;
-		
-		try {
-			preparedStatement = conn.prepareStatement("SELECT * FROM film WHERE codSala=? and data_proiezione=?");
-			preparedStatement.setInt(2,codSala );
-			preparedStatement.setString(3,data_proiezione);
-			
-			ResultSet resultSet=preparedStatement.executeQuery();
-			if(resultSet.next()) {
-				p=new Proiezioni();
-				
-				p.setCodFilm(resultSet.getInt("codFilm"));
-				p.setCodSala(resultSet.getInt("codSala"));
-	            p.setCodProiezioni(resultSet.getInt("codProiezioni"));
-	            p.setIncasso( resultSet.getInt("incasso") );
-	            p.setData_proiezione( resultSet.getString("data_proiezione") );
-			}
-			
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}
-		finally {
-			try{
-				preparedStatement.close();
-				conn.close();
-			}catch(SQLException e) {
-				e.printStackTrace();
-			}
-			
-		}
-		return p;
-			
-	}
+	
 	@Override
-	public Proiezione getFilm(int codFilm, int codSala) {
+	public Proiezioni getProiezioni(int codFilm, int codSala) {
 		
 		Connection conn = ConnectionDatabase.getConnection();
 		Proiezioni p=null;
 		PreparedStatement preparedStatement = null;
 		
 		try {
-			preparedStatement = conn.prepareStatement("SELECT * FROM film WHERE codSala=? and data_proiezione=?");
-			preparedStatement.setInt(1,codFilm );
-			preparedStatement.setString(3,data_proiezione);
+			preparedStatement = conn.prepareStatement("SELECT * FROM film WHERE codFilm=? and codSala=?");
+			preparedStatement.setInt(1,codFilm);
+			preparedStatement.setInt(2,codSala);
 			
 			ResultSet resultSet=preparedStatement.executeQuery();
 			if(resultSet.next()) {
@@ -282,9 +245,9 @@ public class ProiezioniRepositoryImp implements ProiezioniRepository {
 				
 				p.setCodFilm(resultSet.getInt("codFilm"));
 				p.setCodSala(resultSet.getInt("codSala"));
-	            p.setCodProiezioni(resultSet.getInt("codProiezioni"));
+	            p.setCodProiezione(resultSet.getInt("codProiezioni"));
 	            p.setIncasso( resultSet.getInt("incasso") );
-	            p.setData_proiezione( resultSet.getString("data_proiezione") );
+	            p.setDataProiezione( resultSet.getString("data_proiezione") );
 			}
 			
 		}catch(SQLException e) {
