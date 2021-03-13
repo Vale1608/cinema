@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import cinema.model.Film;
+import model.Proiezioni;
 
 public class ProiezioniRepositoryImp implements ProiezioniRepository {
 
