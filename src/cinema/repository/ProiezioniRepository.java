@@ -2,9 +2,9 @@ package cinema.repository;
 
 import java.util.List;
 
-import cinema.model.Film;
+import cinema.model.Proiezioni;
 
-public interface ProeizioniRepository {
+public interface ProiezioniRepository {
 	
 
 
