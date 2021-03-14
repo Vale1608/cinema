@@ -1,4 +1,4 @@
-package repository;
+package cinema.repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Proiezioni;
+import cinema.model.Proiezioni;
 
 public class ProiezioniRepositoryImp implements ProiezioniRepository {
 

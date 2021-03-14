@@ -9,16 +9,16 @@ public interface ProiezioniRepository {
 
 
 
-    boolean aggiungi(Proiezione proiezione);
+    boolean aggiungi(Proiezioni proiezione);
     boolean update(Proiezioni proiezione);
     boolean delete(Integer CodProiezioni);
     Proiezioni cerca(String dataProiezione,int codFilm);
     List<Proiezioni> proiezioni();
     //get qualcosa in base ai paramentri film
     
-    Proiezioni getProeizioni(int codFilm, String dataProiezione);
+    Proiezioni getProiezioni(int codFilm, String dataProiezione);
 	
-	Proiezioni getProeizioni(int codFilm, int codSala);
+	Proiezioni getProiezioni(int codFilm, int codSala);
 	
 
 

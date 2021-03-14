@@ -1,4 +1,4 @@
-package gui;
+package cinema.GUI;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -10,9 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import repository.FilmRepository;
-import repository.FilmRepositoryImp;
-import model.Film;
+import cinema.repository.*;
+import cinema.repository.FilmRepositoryImp;
+import cinema.model.Film;
 
 public class PannelloAddFilm extends JPanel {
 	
