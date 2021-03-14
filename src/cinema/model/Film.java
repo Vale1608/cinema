@@ -15,11 +15,13 @@ public class Film {
 		
 	}
 	
-	public Film (String titolo,int codFilm) {
-		this.titolo=titolo;
+	public Film (int codFilm, String titolo, String annoProduzione, String Nazionalita, String regista, String genere) {
 		this.codFilm=codFilm;
-	
-		
+		this.titolo=titolo;
+		this.annoProduzione=annoProduzione;
+		this.Nazionalita=Nazionalita;
+		this.regista=regista;
+		this.genere=genere;
 	}
 	
 	@Override

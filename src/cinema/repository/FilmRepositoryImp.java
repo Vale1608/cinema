@@ -11,7 +11,33 @@ import java.util.List;
 import cinema.model.Film;
 
 public class FilmRepositoryImp implements FilmRepository {
-
+	
+	public void save(Film film) {
+		Connection conn=ConnectionDatabase.getConnection();
+		
+		PreparedStatement preparedStatement=null;
+		
+		try {
+			preparedStatement=conn.prepareStatement("INSERT INTO film VALUES(null,?,?,?,?,?)");
+			preparedStatement.setInt(1, film.getCodFilm());
+			preparedStatement.setString(2, film.getTitolo());
+			preparedStatement.setString(3, film.getAnnoProduzione());
+			preparedStatement.setString(4, film.getNazionalita());
+	        preparedStatement.setString(3, film.getRegista());
+	        preparedStatement.setString(5, film.getGenere());
+		}catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                preparedStatement.close();
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+	}
+	
+	
 	@Override
 	public boolean aggiungi(Film film) {
 		

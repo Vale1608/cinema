@@ -7,8 +7,8 @@ import cinema.model.Film;
 public interface FilmRepository {
 	
 
-
-
+	
+	void save(Film film);
     boolean aggiungi(Film film);
     boolean update(Film film);
     boolean delete(Integer CodFilm);

@@ -97,7 +97,7 @@ public PannelloAddFilm(PanelSwitcher panelSwitcher) {
                     String regista = textRegista.getText();
                     String genere = textGenere.getText();
 
-                    Film film = new Film(codFilm, annoProduzione, Nazionalita,regista,genere);
+                    Film film = new Film(codFilm, titolo, annoProduzione, Nazionalita,regista,genere);
                     filmRepository.save(film);
                 }
 
