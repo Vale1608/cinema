@@ -109,10 +109,10 @@ public class MondoCinemaGui implements PanelSwitcher{
         menuBar.add(sale);
         this.frame.setJMenuBar(menuBar);
         
-        this.pannelloTabella = new PannelloTabella(this);
+        /*this.pannelloTabella = new PannelloTabella(this);
         this.frame.add(this.pannelloTabella, BorderLayout.CENTER);
         this.pannelloTabella();
-        this.frame.setVisible(true);
+        this.frame.setVisible(true);*/
        
         addFilm.addActionListener(new ActionListener() {
             @Override
@@ -146,7 +146,7 @@ public class MondoCinemaGui implements PanelSwitcher{
             }
         });
         
-        //this.pannelloTabella =new PannelloTabella2(this);
+        this.pannelloTabella =new PannelloTabella2(this);
         this.pannelloAddFilm = new PannelloAddFilm(this);
         this.frame.add(this.pannelloTabella, BorderLayout.CENTER);
         this.pannelloTabella();

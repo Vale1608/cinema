@@ -1,14 +1,17 @@
-package gui;
+package cinema.GUI;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+
+import cinema.repository.FilmRepository;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import model.*;
-import repository.*;
+import cinema.model.*;
+import cinema.repository.*;
 
 public class PannelloTabella1 extends PannelloTabella {
 		
@@ -17,7 +20,7 @@ public class PannelloTabella1 extends PannelloTabella {
 	private String colonna1[]={"CodAttore","Nome","AnnoNascita", "Nazionalita"};
 	private Object[][] data1 = new Object[0][0];*/
 	
-	private JTable film ;
+	private JTable film;
 	private String colonna[]={"CodFilm","Titotlo","AnnoProduzione", "Nazionalita","Regista","Genere"};
 	private FilmRepository filmRepository = new FilmRepositoryImp();
 

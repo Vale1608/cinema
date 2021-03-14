@@ -1,10 +1,10 @@
-package gui;
+package cinema.GUI;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import repository.FilmRepository;
-import repository.FilmRepositoryImp;
+import cinema.repository.FilmRepository;
+import cinema.repository.FilmRepositoryImp;
 
 public abstract class PannelloTabella extends JPanel {
 	

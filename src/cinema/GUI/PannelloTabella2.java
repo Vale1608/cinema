@@ -1,16 +1,16 @@
-package gui;
+package cinema.GUI;
 
 import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import model.Attori;
-import model.Film;
-import repository.AttoriRepository;
-import repository.AttoriRepositoryImp;
-import repository.FilmRepository;
-import repository.FilmRepositoryImp;
+import cinema.model.Attori;
+import cinema.model.Film;
+import cinema.repository.AttoriRepository;
+import cinema.repository.AttoriRepositoryImp;
+import cinema.repository.FilmRepository;
+import cinema.repository.FilmRepositoryImp;
 
 public class PannelloTabella2 extends PannelloTabella {
 
